@@ -1,0 +1,73 @@
+{
+
+"collectionName": "components_shared_team_members",
+
+"info": {
+
+"displayName": "Team Member",
+
+"icon": "user",
+
+"description": "Team member profile"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"name": {
+
+"type": "string",
+
+"required": true
+
+},
+
+"role": {
+
+"type": "string",
+
+"required": true
+
+},
+
+"bio": {
+
+"type": "text"
+
+},
+
+"image": {
+
+"type": "media",
+
+"multiple": false,
+
+"required": true,
+
+"allowedTypes": ["images"]
+
+},
+
+"linkedIn": {
+
+"type": "string"
+
+},
+
+"twitter": {
+
+"type": "string"
+
+},
+
+"email": {
+
+"type": "string"
+
+}
+
+}
+
+}

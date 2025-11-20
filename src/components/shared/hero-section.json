@@ -1,0 +1,75 @@
+{
+
+"collectionName": "components_shared_hero_sections",
+
+"info": {
+
+"displayName": "Hero Section",
+
+"icon": "star",
+
+"description": "Hero section with title, subtitle, and CTA"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"title": {
+
+"type": "string",
+
+"required": true
+
+},
+
+"subtitle": {
+
+"type": "text"
+
+},
+
+"primaryCTA": {
+
+"type": "component",
+
+"repeatable": false,
+
+"component": "shared.cta-button"
+
+},
+
+"secondaryCTA": {
+
+"type": "component",
+
+"repeatable": false,
+
+"component": "shared.cta-button"
+
+},
+
+"backgroundImage": {
+
+"type": "media",
+
+"multiple": false,
+
+"allowedTypes": ["images"]
+
+},
+
+"backgroundVideo": {
+
+"type": "media",
+
+"multiple": false,
+
+"allowedTypes": ["videos"]
+
+}
+
+}
+
+}

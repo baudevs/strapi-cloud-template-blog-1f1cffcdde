@@ -1,0 +1,61 @@
+{
+
+"collectionName": "components_sections_cta",
+
+"info": {
+
+"displayName": "CTA Section",
+
+"icon": "cursor"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"title": {
+
+"type": "string"
+
+},
+
+"description": {
+
+"type": "text"
+
+},
+
+"primaryButton": {
+
+"type": "component",
+
+"repeatable": false,
+
+"component": "shared.cta-button"
+
+},
+
+"secondaryButton": {
+
+"type": "component",
+
+"repeatable": false,
+
+"component": "shared.cta-button"
+
+},
+
+"backgroundImage": {
+
+"type": "media",
+
+"multiple": false,
+
+"allowedTypes": ["images"]
+
+}
+
+}
+
+}

@@ -1,0 +1,41 @@
+{
+
+"collectionName": "components_sections_team",
+
+"info": {
+
+"displayName": "Team Section",
+
+"icon": "users"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"title": {
+
+"type": "string"
+
+},
+
+"subtitle": {
+
+"type": "text"
+
+},
+
+"teamMembers": {
+
+"type": "component",
+
+"repeatable": true,
+
+"component": "shared.team-member"
+
+}
+
+}
+
+}

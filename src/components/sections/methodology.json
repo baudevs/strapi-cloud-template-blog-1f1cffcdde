@@ -1,0 +1,41 @@
+{
+
+"collectionName": "components_sections_methodology",
+
+"info": {
+
+"displayName": "Methodology Section",
+
+"icon": "book"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"title": {
+
+"type": "string"
+
+},
+
+"subtitle": {
+
+"type": "text"
+
+},
+
+"principles": {
+
+"type": "component",
+
+"repeatable": true,
+
+"component": "shared.feature-card"
+
+}
+
+}
+
+}

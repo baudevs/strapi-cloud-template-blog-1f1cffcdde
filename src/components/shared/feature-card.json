@@ -1,0 +1,51 @@
+{
+
+"collectionName": "components_shared_feature_cards",
+
+"info": {
+
+"displayName": "Feature Card",
+
+"icon": "layer",
+
+"description": "Feature card with icon, title, and description"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"title": {
+
+"type": "string",
+
+"required": true
+
+},
+
+"description": {
+
+"type": "text"
+
+},
+
+"icon": {
+
+"type": "media",
+
+"multiple": false,
+
+"allowedTypes": ["images"]
+
+},
+
+"iconName": {
+
+"type": "string"
+
+}
+
+}
+
+}

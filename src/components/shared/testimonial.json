@@ -1,0 +1,63 @@
+{
+
+"collectionName": "components_shared_testimonials",
+
+"info": {
+
+"displayName": "Testimonial",
+
+"icon": "quote",
+
+"description": "Customer testimonial"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"quote": {
+
+"type": "text",
+
+"required": true
+
+},
+
+"authorName": {
+
+"type": "string",
+
+"required": true
+
+},
+
+"authorTitle": {
+
+"type": "string"
+
+},
+
+"authorImage": {
+
+"type": "media",
+
+"multiple": false,
+
+"allowedTypes": ["images"]
+
+},
+
+"rating": {
+
+"type": "integer",
+
+"min": 1,
+
+"max": 5
+
+}
+
+}
+
+}

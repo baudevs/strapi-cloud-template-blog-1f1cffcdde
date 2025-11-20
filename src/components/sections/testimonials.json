@@ -1,0 +1,41 @@
+{
+
+"collectionName": "components_sections_testimonials",
+
+"info": {
+
+"displayName": "Testimonials Section",
+
+"icon": "heart"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"title": {
+
+"type": "string"
+
+},
+
+"subtitle": {
+
+"type": "text"
+
+},
+
+"testimonials": {
+
+"type": "component",
+
+"repeatable": true,
+
+"component": "shared.testimonial"
+
+}
+
+}
+
+}

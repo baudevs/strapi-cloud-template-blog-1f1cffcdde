@@ -1,0 +1,41 @@
+{
+
+"collectionName": "components_sections_features",
+
+"info": {
+
+"displayName": "Features Section",
+
+"icon": "grid"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"title": {
+
+"type": "string"
+
+},
+
+"subtitle": {
+
+"type": "text"
+
+},
+
+"features": {
+
+"type": "component",
+
+"repeatable": true,
+
+"component": "shared.feature-card"
+
+}
+
+}
+
+}

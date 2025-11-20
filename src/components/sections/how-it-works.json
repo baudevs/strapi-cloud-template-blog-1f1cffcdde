@@ -1,0 +1,41 @@
+{
+
+"collectionName": "components_sections_how_it_works",
+
+"info": {
+
+"displayName": "How It Works Section",
+
+"icon": "cog"
+
+},
+
+"options": {},
+
+"attributes": {
+
+"title": {
+
+"type": "string"
+
+},
+
+"subtitle": {
+
+"type": "text"
+
+},
+
+"steps": {
+
+"type": "component",
+
+"repeatable": true,
+
+"component": "shared.feature-card"
+
+}
+
+}
+
+}
