@@ -125,8 +125,11 @@ export interface SharedHeroSection extends Struct.ComponentSchema {
     backgroundVideo: Schema.Attribute.Media<'videos'>;
     primaryCTA: Schema.Attribute.Component<'shared.cta-button', false>;
     secondaryCTA: Schema.Attribute.Component<'shared.cta-button', false>;
+    secondSubtitle: Schema.Attribute.Text;
     subtitle: Schema.Attribute.Text;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    thirdSubtitle: Schema.Attribute.Text;
+    titleBottom: Schema.Attribute.String;
+    titleTop: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

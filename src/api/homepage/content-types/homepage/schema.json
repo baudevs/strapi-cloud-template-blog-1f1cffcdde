@@ -1,75 +1,38 @@
 {
-
-"kind": "singleType",
-
-"collectionName": "homepages",
-
-"info": {
-
-"singularName": "homepage",
-
-"pluralName": "homepages",
-
-"displayName": "Homepage",
-
-"description": "Homepage content and sections"
-
-},
-
-"options": {
-
-"draftAndPublish": true
-
-},
-
-"pluginOptions": {},
-
-"attributes": {
-
-"hero": {
-
-"type": "component",
-
-"repeatable": false,
-
-"component": "shared.hero-section",
-
-"required": true
-
-},
-
-"sections": {
-
-"type": "dynamiczone",
-
-"components": [
-
-"sections.features",
-
-"sections.methodology",
-
-"sections.how-it-works",
-
-"sections.testimonials",
-
-"sections.team",
-
-"sections.cta"
-
-]
-
-},
-
-"seo": {
-
-"type": "component",
-
-"repeatable": false,
-
-"component": "shared.seo"
-
-}
-
-}
-
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage",
+    "description": "Homepage content and sections"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "component": "shared.hero-section",
+      "repeatable": false,
+      "required": true
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.features",
+        "sections.methodology",
+        "sections.how-it-works",
+        "sections.testimonials",
+        "sections.team",
+        "sections.cta"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
 }

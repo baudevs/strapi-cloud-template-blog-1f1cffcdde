@@ -1,75 +1,51 @@
 {
-
-"collectionName": "components_shared_hero_sections",
-
-"info": {
-
-"displayName": "Hero Section",
-
-"icon": "star",
-
-"description": "Hero section with title, subtitle, and CTA"
-
-},
-
-"options": {},
-
-"attributes": {
-
-"title": {
-
-"type": "string",
-
-"required": true
-
-},
-
-"subtitle": {
-
-"type": "text"
-
-},
-
-"primaryCTA": {
-
-"type": "component",
-
-"repeatable": false,
-
-"component": "shared.cta-button"
-
-},
-
-"secondaryCTA": {
-
-"type": "component",
-
-"repeatable": false,
-
-"component": "shared.cta-button"
-
-},
-
-"backgroundImage": {
-
-"type": "media",
-
-"multiple": false,
-
-"allowedTypes": ["images"]
-
-},
-
-"backgroundVideo": {
-
-"type": "media",
-
-"multiple": false,
-
-"allowedTypes": ["videos"]
-
-}
-
-}
-
+  "collectionName": "components_shared_hero_sections",
+  "info": {
+    "displayName": "Hero Section",
+    "icon": "star",
+    "description": "Hero section with title, subtitle, and CTA"
+  },
+  "options": {},
+  "attributes": {
+    "titleTop": {
+      "type": "string",
+      "required": true
+    },
+    "titleBottom": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "primaryCTA": {
+      "type": "component",
+      "component": "shared.cta-button",
+      "repeatable": false
+    },
+    "secondaryCTA": {
+      "type": "component",
+      "component": "shared.cta-button",
+      "repeatable": false
+    },
+    "secondSubtitle": {
+      "type": "text"
+    },
+    "thirdSubtitle": {
+      "type": "text"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "backgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    }
+  }
 }
