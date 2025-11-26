@@ -677,6 +677,8 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'sections.testimonials',
         'sections.team',
         'sections.cta',
+        'sections.compass',
+        'sections.content-with-stats',
       ]
     >;
     seo: Schema.Attribute.Component<'shared.seo', false>;

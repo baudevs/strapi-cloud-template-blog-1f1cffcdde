@@ -26,7 +26,9 @@
         "sections.how-it-works",
         "sections.testimonials",
         "sections.team",
-        "sections.cta"
+        "sections.cta",
+        "sections.compass",
+        "sections.content-with-stats"
       ]
     },
     "seo": {
