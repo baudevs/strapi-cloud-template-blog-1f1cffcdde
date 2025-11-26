@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_shared_menu_item_level_2s",
+  "info": {
+    "displayName": "Menu Item Level 2",
+    "description": "Second-level menu item (can have level 3 children)",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": false
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    },
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service.service"
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "icon": {
+      "type": "string",
+      "required": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "children": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.menu-item-level-3"
+    }
+  }
+}

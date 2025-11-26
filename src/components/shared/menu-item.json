@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_shared_menu_items",
+  "info": {
+    "displayName": "Menu Item",
+    "description": "Navigation menu item with support for nested children",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": false
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    },
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service.service"
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "cssClass": {
+      "type": "string",
+      "required": false
+    },
+    "children": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.menu-item-level-2"
+    },
+    "icon": {
+      "type": "string",
+      "required": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

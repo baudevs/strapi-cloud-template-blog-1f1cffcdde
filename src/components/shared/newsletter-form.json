@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_newsletter_forms",
+  "info": {
+    "displayName": "Newsletter Form",
+    "description": "Newsletter subscription form configuration",
+    "icon": "envelope"
+  },
+  "options": {},
+  "attributes": {
+    "placeholder": {
+      "type": "string",
+      "default": "Enter your email address"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Subscribe",
+      "required": true
+    },
+    "successMessage": {
+      "type": "string",
+      "default": "Thank you for subscribing!"
+    },
+    "privacyText": {
+      "type": "richtext",
+      "required": false
+    }
+  }
+}

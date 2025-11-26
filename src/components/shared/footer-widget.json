@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_shared_footer_widgets",
+  "info": {
+    "displayName": "Footer Widget",
+    "description": "Configurable footer widget with multiple content types",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "links",
+        "newsletter",
+        "contact",
+        "social",
+        "rich-text"
+      ],
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.simple-link",
+        "shared.rich-text",
+        "shared.newsletter-form",
+        "shared.contact-info"
+      ]
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
