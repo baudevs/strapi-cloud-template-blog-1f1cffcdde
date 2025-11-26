@@ -110,6 +110,28 @@ export interface SectionsHowItWorks extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsHubspotForm extends Struct.ComponentSchema {
+  collectionName: 'components_sections_hubspot_forms';
+  info: {
+    displayName: 'HubSpot Form Section';
+    icon: 'envelope';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    badge: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    hubspotForm: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::hubspot-form.hubspot-form'
+    >;
+    sectionId: Schema.Attribute.String;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['dark', 'light']> &
+      Schema.Attribute.DefaultTo<'dark'>;
+  };
+}
+
 export interface SectionsMethodology extends Struct.ComponentSchema {
   collectionName: 'components_sections_methodology';
   info: {
@@ -620,6 +642,7 @@ declare module '@strapi/strapi' {
       'sections.faq': SectionsFaq;
       'sections.features': SectionsFeatures;
       'sections.how-it-works': SectionsHowItWorks;
+      'sections.hubspot-form': SectionsHubspotForm;
       'sections.methodology': SectionsMethodology;
       'sections.pricing': SectionsPricing;
       'sections.services-grid': SectionsServicesGrid;

@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_sections_hubspot_forms",
+  "info": {
+    "displayName": "HubSpot Form Section",
+    "icon": "envelope"
+  },
+  "attributes": {
+    "badge": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "hubspotForm": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::hubspot-form.hubspot-form"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "dark"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "allowedTypes": ["images"]
+    },
+    "sectionId": {
+      "type": "string"
+    }
+  }
+}
