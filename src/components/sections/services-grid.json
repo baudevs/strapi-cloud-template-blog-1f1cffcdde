@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_sections_services_grids",
+  "info": {
+    "displayName": "Services Grid",
+    "description": "Grid display of services with relation to Service collection",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "subtitle": {
+      "type": "text",
+      "required": false
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["grid-2", "grid-3", "grid-4", "list"],
+      "default": "grid-3"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Learn More"
+    }
+  }
+}

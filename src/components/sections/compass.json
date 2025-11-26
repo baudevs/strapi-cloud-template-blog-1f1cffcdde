@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_sections_compasses",
+  "info": {
+    "displayName": "Compass Section",
+    "description": "Interactive compass visualization with configurable directions",
+    "icon": "compass"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "directions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.compass-direction"
+    },
+    "hoverText": {
+      "type": "string",
+      "default": "Hover over the compass to explore each direction. Click on any point to learn more."
+    },
+    "closingStatement": {
+      "type": "text"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "dark"
+    },
+    "sectionId": {
+      "type": "string"
+    }
+  }
+}

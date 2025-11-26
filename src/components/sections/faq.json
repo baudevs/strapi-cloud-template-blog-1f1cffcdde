@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_sections_faqs",
+  "info": {
+    "displayName": "FAQ Section",
+    "description": "Frequently Asked Questions section with relation to FAQ collection",
+    "icon": "question-circle"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "subtitle": {
+      "type": "text",
+      "required": false
+    },
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq"
+    },
+    "displayStyle": {
+      "type": "enumeration",
+      "enum": [
+        "accordion",
+        "grid",
+        "list"
+      ],
+      "default": "accordion"
+    }
+  }
+}

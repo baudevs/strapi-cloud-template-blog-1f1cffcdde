@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_sections_content_with_stats",
+  "info": {
+    "displayName": "Content With Stats",
+    "icon": "chartLine",
+    "description": "A section combining content paragraphs with statistics cards and subsections"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.stat-card"
+    },
+    "subsections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.content-subsection"
+    },
+    "closingStatement": {
+      "type": "richtext"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "dark"
+    }
+  }
+}

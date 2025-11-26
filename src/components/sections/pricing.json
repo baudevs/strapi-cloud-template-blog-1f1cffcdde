@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_pricings",
+  "info": {
+    "displayName": "Pricing Section",
+    "description": "Pricing table section with multiple pricing tiers",
+    "icon": "dollar-sign"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "subtitle": {
+      "type": "text",
+      "required": false
+    },
+    "pricingTiers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.pricing-tier"
+    },
+    "popularLabel": {
+      "type": "string",
+      "default": "Most Popular"
+    },
+    "ctaText": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
