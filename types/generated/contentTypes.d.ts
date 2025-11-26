@@ -603,6 +603,104 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCookiePolicyCookiePolicy extends Struct.SingleTypeSchema {
+  collectionName: 'cookie_policies';
+  info: {
+    description: 'Cookie Policy page content';
+    displayName: 'Cookie Policy';
+    pluralName: 'cookie-policies';
+    singularName: 'cookie-policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<['shared.rich-text', 'shared.media']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    lastUpdated: Schema.Attribute.Date & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cookie-policy.cookie-policy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Cookie Policy'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqPageFaqPage extends Struct.SingleTypeSchema {
+  collectionName: 'faq_pages';
+  info: {
+    description: 'Frequently Asked Questions page configuration';
+    displayName: 'FAQ Page';
+    pluralName: 'faq-pages';
+    singularName: 'faq-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categories: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hero: Schema.Attribute.Component<'shared.hero-section', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-page.faq-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Frequently Asked Questions'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    description: 'Frequently Asked Questions';
+    displayName: 'FAQ';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.RichText & Schema.Attribute.Required;
+    category: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1414,8 +1512,16 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
+      'api::cookie-policy.cookie-policy': ApiCookiePolicyCookiePolicy;
+      'api::faq-page.faq-page': ApiFaqPageFaqPage;
+      'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::menu.menu': ApiMenuMenu;
+      'api::page.page': ApiPagePage;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
+      'api::service.service': ApiServiceService;
+      'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
