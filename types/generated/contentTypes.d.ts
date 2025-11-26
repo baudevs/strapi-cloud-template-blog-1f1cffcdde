@@ -615,12 +615,15 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    copyrightText: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     defaultSeo: Schema.Attribute.Component<'shared.seo', false> &
       Schema.Attribute.Required;
     favicon: Schema.Attribute.Media<'images'>;
+    footerBottomLinks: Schema.Attribute.Component<'shared.cta-button', true>;
+    footerWidgets: Schema.Attribute.Component<'shared.footer-widget', true>;
     gtmId: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -629,6 +632,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images'>;
+    mainMenu: Schema.Attribute.Relation<'oneToOne', 'api::menu.menu'>;
     organizationSchema: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
     siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;

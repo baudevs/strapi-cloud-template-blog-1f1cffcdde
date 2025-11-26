@@ -98,6 +98,44 @@
 
 "type": "json"
 
+},
+
+"mainMenu": {
+
+"type": "relation",
+
+"relation": "oneToOne",
+
+"target": "api::menu.menu"
+
+},
+
+"footerWidgets": {
+
+"type": "component",
+
+"repeatable": true,
+
+"component": "shared.footer-widget"
+
+},
+
+"copyrightText": {
+
+"type": "string",
+
+"required": false
+
+},
+
+"footerBottomLinks": {
+
+"type": "component",
+
+"repeatable": true,
+
+"component": "shared.cta-button"
+
 }
 
 }
