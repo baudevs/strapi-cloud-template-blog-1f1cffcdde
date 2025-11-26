@@ -1,0 +1,100 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service",
+    "description": "Coaching services and programs with pricing and features"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "hero": {
+      "type": "component",
+      "component": "shared.hero-section",
+      "repeatable": false,
+      "required": false
+    },
+    "price": {
+      "type": "decimal",
+      "required": false
+    },
+    "pricingPeriod": {
+      "type": "enumeration",
+      "enum": [
+        "one-time",
+        "monthly",
+        "quarterly",
+        "yearly"
+      ],
+      "default": "monthly"
+    },
+    "pricingTiers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.pricing-tier"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-card"
+    },
+    "testimonials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.testimonial"
+    },
+    "media": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.media",
+        "shared.slider"
+      ]
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.features",
+        "sections.methodology",
+        "sections.how-it-works",
+        "sections.testimonials",
+        "sections.team",
+        "sections.cta",
+        "sections.faq",
+        "sections.pricing",
+        "sections.compass",
+        "sections.content-with-stats",
+        "shared.rich-text",
+        "shared.media",
+        "shared.quote"
+      ]
+    },
+    "ctaSection": {
+      "type": "component",
+      "component": "sections.cta",
+      "repeatable": false,
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
