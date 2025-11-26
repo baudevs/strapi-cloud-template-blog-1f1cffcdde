@@ -777,9 +777,44 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'sections.cta',
         'sections.compass',
         'sections.content-with-stats',
+        'sections.hubspot-form',
       ]
     >;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHubspotFormHubspotForm extends Struct.CollectionTypeSchema {
+  collectionName: 'hubspot_forms';
+  info: {
+    description: 'HubSpot form embed configurations';
+    displayName: 'HubSpot Form';
+    pluralName: 'hubspot-forms';
+    singularName: 'hubspot-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    formId: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hubspot-form.hubspot-form'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    portalId: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.Enumeration<['na1', 'eu1']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'eu1'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -847,6 +882,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'sections.pricing',
         'sections.compass',
         'sections.content-with-stats',
+        'sections.hubspot-form',
         'shared.media',
         'shared.quote',
         'shared.rich-text',
@@ -1517,6 +1553,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::hubspot-form.hubspot-form': ApiHubspotFormHubspotForm;
       'api::menu.menu': ApiMenuMenu;
       'api::page.page': ApiPagePage;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
