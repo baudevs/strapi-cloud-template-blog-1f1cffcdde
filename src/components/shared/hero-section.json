@@ -7,6 +7,9 @@
   },
   "options": {},
   "attributes": {
+    "badge": {
+      "type": "string"
+    },
     "titleTop": {
       "type": "string",
       "required": true
@@ -15,6 +18,12 @@
       "type": "string"
     },
     "subtitle": {
+      "type": "text"
+    },
+    "secondSubtitle": {
+      "type": "text"
+    },
+    "thirdSubtitle": {
       "type": "text"
     },
     "primaryCTA": {
@@ -27,25 +36,18 @@
       "component": "shared.cta-button",
       "repeatable": false
     },
-    "secondSubtitle": {
-      "type": "text"
-    },
-    "thirdSubtitle": {
-      "type": "text"
+    "scrollPrompt": {
+      "type": "string"
     },
     "backgroundImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "backgroundVideo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "videos"
-      ]
+      "allowedTypes": ["videos"]
     }
   }
 }

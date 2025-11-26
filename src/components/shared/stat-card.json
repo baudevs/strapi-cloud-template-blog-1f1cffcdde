@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_stat_cards",
+  "info": {
+    "displayName": "Stat Card",
+    "icon": "chartLine",
+    "description": "A statistic card with value and description"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary", "accent"],
+      "default": "primary"
+    }
+  }
+}

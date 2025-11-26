@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_shared_compass_directions",
+  "info": {
+    "displayName": "Compass Direction",
+    "description": "A single direction point on the compass (N, E, S, W)",
+    "icon": "compass"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "default": "NORTH"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "details": {
+      "type": "text"
+    },
+    "color": {
+      "type": "string",
+      "default": "#00FF72"
+    },
+    "iconName": {
+      "type": "string",
+      "default": "Target"
+    }
+  }
+}

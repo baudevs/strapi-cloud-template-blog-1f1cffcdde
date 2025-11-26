@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_content_subsections",
+  "info": {
+    "displayName": "Content Subsection",
+    "icon": "layer",
+    "description": "A titled subsection with rich text content"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

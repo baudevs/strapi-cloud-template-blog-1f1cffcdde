@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_shared_pricing_tiers",
+  "info": {
+    "displayName": "Pricing Tier",
+    "description": "Pricing plan or tier with features and CTA",
+    "icon": "dollar-sign"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "pricingPeriod": {
+      "type": "enumeration",
+      "enum": [
+        "one-time",
+        "monthly",
+        "quarterly",
+        "yearly"
+      ],
+      "default": "monthly"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-card"
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false
+    },
+    "ctaButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta-button"
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

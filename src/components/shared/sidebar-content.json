@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_sidebar_contents",
+  "info": {
+    "displayName": "Sidebar Content",
+    "description": "Sidebar configuration for page templates",
+    "icon": "layout-sidebar"
+  },
+  "options": {},
+  "attributes": {
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right",
+      "required": true
+    },
+    "widgets": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.rich-text",
+        "shared.media",
+        "shared.cta-button",
+        "sections.cta"
+      ]
+    }
+  }
+}
