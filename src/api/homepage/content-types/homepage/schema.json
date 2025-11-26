@@ -28,7 +28,8 @@
         "sections.team",
         "sections.cta",
         "sections.compass",
-        "sections.content-with-stats"
+        "sections.content-with-stats",
+        "sections.hubspot-form"
       ]
     },
     "seo": {
