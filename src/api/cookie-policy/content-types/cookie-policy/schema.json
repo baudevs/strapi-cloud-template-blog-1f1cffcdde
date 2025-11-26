@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "cookie_policies",
+  "info": {
+    "singularName": "cookie-policy",
+    "pluralName": "cookie-policies",
+    "displayName": "Cookie Policy",
+    "description": "Cookie Policy page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Cookie Policy"
+    },
+    "lastUpdated": {
+      "type": "date",
+      "required": true
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.rich-text",
+        "shared.media"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
