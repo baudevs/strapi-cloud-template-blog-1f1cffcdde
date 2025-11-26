@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page",
+    "description": "Dynamic pages with template support"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "template": {
+      "type": "enumeration",
+      "enum": [
+        "basic",
+        "sidebar",
+        "full-width",
+        "landing"
+      ],
+      "default": "basic",
+      "required": true
+    },
+    "hero": {
+      "type": "component",
+      "component": "shared.hero-section",
+      "repeatable": false,
+      "required": false
+    },
+    "sidebar": {
+      "type": "component",
+      "component": "shared.sidebar-content",
+      "repeatable": false,
+      "required": false
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.features",
+        "sections.methodology",
+        "sections.how-it-works",
+        "sections.testimonials",
+        "sections.team",
+        "sections.cta",
+        "sections.faq",
+        "sections.services-grid",
+        "sections.pricing",
+        "sections.compass",
+        "sections.content-with-stats",
+        "shared.media",
+        "shared.quote",
+        "shared.rich-text",
+        "shared.slider"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
