@@ -1,41 +1,71 @@
 {
-
-"collectionName": "components_sections_methodology",
-
-"info": {
-
-"displayName": "Methodology Section",
-
-"icon": "book"
-
-},
-
-"options": {},
-
-"attributes": {
-
-"title": {
-
-"type": "string"
-
-},
-
-"subtitle": {
-
-"type": "text"
-
-},
-
-"principles": {
-
-"type": "component",
-
-"repeatable": true,
-
-"component": "shared.feature-card"
-
-}
-
-}
-
+  "collectionName": "components_sections_methodology",
+  "info": {
+    "displayName": "Methodology Section",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "principles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-card"
+    },
+    "methodologyTitle": {
+      "type": "string"
+    },
+    "methodologyDescription": {
+      "type": "richtext"
+    },
+    "methodologyHighlight": {
+      "type": "string"
+    },
+    "compassBadge": {
+      "type": "string"
+    },
+    "compassTitle": {
+      "type": "string"
+    },
+    "compassDescription": {
+      "type": "richtext"
+    },
+    "compassIntro": {
+      "type": "text"
+    },
+    "humanLedBadge": {
+      "type": "string"
+    },
+    "humanLedTitle": {
+      "type": "string"
+    },
+    "humanLedContent": {
+      "type": "richtext"
+    },
+    "optimisingTitle": {
+      "type": "string"
+    },
+    "optimisingContent": {
+      "type": "richtext"
+    },
+    "optimisingClosing": {
+      "type": "text"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "light"
+    },
+    "sectionId": {
+      "type": "string"
+    }
+  }
 }

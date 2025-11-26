@@ -1,41 +1,50 @@
 {
-
-"collectionName": "components_sections_team",
-
-"info": {
-
-"displayName": "Team Section",
-
-"icon": "users"
-
-},
-
-"options": {},
-
-"attributes": {
-
-"title": {
-
-"type": "string"
-
-},
-
-"subtitle": {
-
-"type": "text"
-
-},
-
-"teamMembers": {
-
-"type": "component",
-
-"repeatable": true,
-
-"component": "shared.team-member"
-
-}
-
-}
-
+  "collectionName": "components_sections_team",
+  "info": {
+    "displayName": "Team Section",
+    "icon": "users",
+    "description": "Full team section with story, members, and mission statement"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "storyTitle": {
+      "type": "string"
+    },
+    "storyContent": {
+      "type": "richtext"
+    },
+    "teamMembers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.team-member"
+    },
+    "missionTitle": {
+      "type": "string"
+    },
+    "missionContent": {
+      "type": "richtext"
+    },
+    "closingStatement": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "light"
+    }
+  }
 }

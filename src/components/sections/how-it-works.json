@@ -1,41 +1,38 @@
 {
-
-"collectionName": "components_sections_how_it_works",
-
-"info": {
-
-"displayName": "How It Works Section",
-
-"icon": "cog"
-
-},
-
-"options": {},
-
-"attributes": {
-
-"title": {
-
-"type": "string"
-
-},
-
-"subtitle": {
-
-"type": "text"
-
-},
-
-"steps": {
-
-"type": "component",
-
-"repeatable": true,
-
-"component": "shared.feature-card"
-
-}
-
-}
-
+  "collectionName": "components_sections_how_it_works",
+  "info": {
+    "displayName": "How It Works Section",
+    "icon": "cog"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "steps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-card"
+    },
+    "earlyWarningTitle": {
+      "type": "string"
+    },
+    "earlyWarningContent": {
+      "type": "richtext"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "dark"
+    },
+    "sectionId": {
+      "type": "string"
+    }
+  }
 }
