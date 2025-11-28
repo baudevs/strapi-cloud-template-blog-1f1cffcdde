@@ -1,143 +1,76 @@
 {
-
-"kind": "singleType",
-
-"collectionName": "globals",
-
-"info": {
-
-"singularName": "global",
-
-"pluralName": "globals",
-
-"displayName": "Global Settings",
-
-"description": "Define global settings"
-
-},
-
-"options": {
-
-"draftAndPublish": false
-
-},
-
-"pluginOptions": {},
-
-"attributes": {
-
-"siteName": {
-
-"type": "string",
-
-"required": true
-
-},
-
-"siteUrl": {
-
-"type": "string",
-
-"required": true
-
-},
-
-"favicon": {
-
-"type": "media",
-
-"multiple": false,
-
-"allowedTypes": ["images"]
-
-},
-
-"logo": {
-
-"type": "media",
-
-"multiple": false,
-
-"allowedTypes": ["images"]
-
-},
-
-"siteDescription": {
-
-"type": "text",
-
-"required": true
-
-},
-
-"defaultSeo": {
-
-"type": "component",
-
-"repeatable": false,
-
-"component": "shared.seo",
-
-"required": true
-
-},
-
-"socialLinks": {
-
-"type": "json"
-
-},
-
-"gtmId": {
-
-"type": "string"
-
-},
-
-"organizationSchema": {
-
-"type": "json"
-
-},
-
-"mainMenu": {
-
-"type": "relation",
-
-"relation": "oneToOne",
-
-"target": "api::menu.menu"
-
-},
-
-"footerWidgets": {
-
-"type": "component",
-
-"repeatable": true,
-
-"component": "shared.footer-widget"
-
-},
-
-"copyrightText": {
-
-"type": "string",
-
-"required": false
-
-},
-
-"footerBottomLinks": {
-
-"type": "component",
-
-"repeatable": true,
-
-"component": "shared.cta-button"
-
-}
-
-}
-
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Global Settings",
+    "description": "Define global settings"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "required": true
+    },
+    "siteUrl": {
+      "type": "string",
+      "required": true
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "siteDescription": {
+      "type": "text",
+      "required": true
+    },
+    "defaultSeo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": true
+    },
+    "socialLinks": {
+      "type": "json"
+    },
+    "gtmId": {
+      "type": "string"
+    },
+    "organizationSchema": {
+      "type": "json"
+    },
+    "mainMenu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu"
+    },
+    "defaultFooter": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::footer.footer"
+    },
+    "contactEmail": {
+      "type": "email"
+    },
+    "contactPhone": {
+      "type": "string"
+    },
+    "contactAddress": {
+      "type": "text"
+    }
+  }
 }

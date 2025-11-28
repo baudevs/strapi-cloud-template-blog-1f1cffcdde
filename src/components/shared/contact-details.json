@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_contact_details",
+  "info": {
+    "displayName": "Contact Details",
+    "description": "Detailed contact information for contact page",
+    "icon": "envelope"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Get in Touch"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "officeHours": {
+      "type": "text"
+    },
+    "responseTime": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["light", "dark"],
+      "default": "light"
+    }
+  }
+}
