@@ -535,6 +535,52 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBlogPageBlogPage extends Struct.SingleTypeSchema {
+  collectionName: 'blog_pages';
+  info: {
+    description: 'Blog listing page with configurable hero and dynamic sections';
+    displayName: 'Blog Page';
+    pluralName: 'blog-pages';
+    singularName: 'blog-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    footer: Schema.Attribute.Relation<'oneToOne', 'api::footer.footer'>;
+    hero: Schema.Attribute.Component<'shared.hero-section', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blog-page.blog-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      [
+        'sections.articles-grid',
+        'sections.featured-article',
+        'sections.category-filter',
+        'sections.features',
+        'sections.testimonials',
+        'sections.cta',
+        'sections.hubspot-form',
+        'sections.faq',
+        'shared.rich-text',
+        'shared.media',
+        'shared.quote',
+      ]
+    >;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -571,7 +617,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiContactContact extends Struct.SingleTypeSchema {
   collectionName: 'contacts';
   info: {
-    description: 'Contact page content';
+    description: 'Contact page content with dynamic sections';
     displayName: 'Contact Page';
     pluralName: 'contacts';
     singularName: 'contact';
@@ -580,23 +626,32 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    address: Schema.Attribute.Text;
-    blocks: Schema.Attribute.DynamicZone<['shared.rich-text', 'shared.media']>;
+    contactDetails: Schema.Attribute.Component<'shared.contact-details', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.String & Schema.Attribute.Required;
+    footer: Schema.Attribute.Relation<'oneToOne', 'api::footer.footer'>;
+    hero: Schema.Attribute.Component<'shared.hero-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::contact.contact'
     > &
       Schema.Attribute.Private;
-    phone: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      [
+        'sections.features',
+        'sections.faq',
+        'sections.testimonials',
+        'sections.cta',
+        'sections.hubspot-form',
+        'shared.rich-text',
+        'shared.media',
+        'shared.quote',
+      ]
+    >;
     seo: Schema.Attribute.Component<'shared.seo', false>;
-    subtitle: Schema.Attribute.Text;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -701,6 +756,46 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFooterFooter extends Struct.CollectionTypeSchema {
+  collectionName: 'footers';
+  info: {
+    description: 'Reusable footer configurations';
+    displayName: 'Footer';
+    pluralName: 'footers';
+    singularName: 'footer';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    bottomLinks: Schema.Attribute.Component<'shared.cta-button', true>;
+    copyrightText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaSection: Schema.Attribute.Component<'shared.footer-cta', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer.footer'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    showSocialLinks: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    variant: Schema.Attribute.Enumeration<['dark', 'light']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'dark'>;
+    widgets: Schema.Attribute.Component<'shared.footer-widget', true>;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -713,15 +808,16 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    copyrightText: Schema.Attribute.String;
+    contactAddress: Schema.Attribute.Text;
+    contactEmail: Schema.Attribute.Email;
+    contactPhone: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultFooter: Schema.Attribute.Relation<'oneToOne', 'api::footer.footer'>;
     defaultSeo: Schema.Attribute.Component<'shared.seo', false> &
       Schema.Attribute.Required;
     favicon: Schema.Attribute.Media<'images'>;
-    footerBottomLinks: Schema.Attribute.Component<'shared.cta-button', true>;
-    footerWidgets: Schema.Attribute.Component<'shared.footer-widget', true>;
     gtmId: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -758,6 +854,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    footer: Schema.Attribute.Relation<'oneToOne', 'api::footer.footer'>;
     hero: Schema.Attribute.Component<'shared.hero-section', false> &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -864,6 +961,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    footer: Schema.Attribute.Relation<'oneToOne', 'api::footer.footer'>;
     hero: Schema.Attribute.Component<'shared.hero-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
@@ -956,6 +1054,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     ctaSection: Schema.Attribute.Component<'sections.cta', false>;
     description: Schema.Attribute.Text;
     features: Schema.Attribute.Component<'shared.feature-card', true>;
+    footer: Schema.Attribute.Relation<'oneToOne', 'api::footer.footer'>;
     hero: Schema.Attribute.Component<'shared.hero-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -992,6 +1091,51 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     testimonials: Schema.Attribute.Component<'shared.testimonial', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServicesPageServicesPage extends Struct.SingleTypeSchema {
+  collectionName: 'services_pages';
+  info: {
+    description: 'Services listing page with configurable hero and dynamic sections';
+    displayName: 'Services Page';
+    pluralName: 'services-pages';
+    singularName: 'services-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    footer: Schema.Attribute.Relation<'oneToOne', 'api::footer.footer'>;
+    hero: Schema.Attribute.Component<'shared.hero-section', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::services-page.services-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      [
+        'sections.all-services-grid',
+        'sections.features',
+        'sections.testimonials',
+        'sections.cta',
+        'sections.pricing',
+        'sections.hubspot-form',
+        'sections.faq',
+        'shared.rich-text',
+        'shared.media',
+        'shared.quote',
+      ]
+    >;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1546,11 +1690,13 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
       'api::cookie-policy.cookie-policy': ApiCookiePolicyCookiePolicy;
       'api::faq-page.faq-page': ApiFaqPageFaqPage;
       'api::faq.faq': ApiFaqFaq;
+      'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::hubspot-form.hubspot-form': ApiHubspotFormHubspotForm;
@@ -1558,6 +1704,7 @@ declare module '@strapi/strapi' {
       'api::page.page': ApiPagePage;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::service.service': ApiServiceService;
+      'api::services-page.services-page': ApiServicesPageServicesPage;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

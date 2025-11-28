@@ -1,5 +1,77 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SectionsAllServicesGrid extends Struct.ComponentSchema {
+  collectionName: 'components_sections_all_services_grids';
+  info: {
+    description: 'Displays all services from the Service collection';
+    displayName: 'All Services Grid';
+    icon: 'grid';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Learn More'>;
+    layout: Schema.Attribute.Enumeration<['grid-2', 'grid-3', 'grid-4']> &
+      Schema.Attribute.DefaultTo<'grid-3'>;
+    sectionId: Schema.Attribute.String;
+    showDescription: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    showPrice: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
+  };
+}
+
+export interface SectionsArticlesGrid extends Struct.ComponentSchema {
+  collectionName: 'components_sections_articles_grids';
+  info: {
+    description: 'Grid display of blog articles with pagination';
+    displayName: 'Articles Grid';
+    icon: 'grid';
+  };
+  attributes: {
+    articlesPerPage: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 24;
+          min: 3;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<12>;
+    layout: Schema.Attribute.Enumeration<['grid-2', 'grid-3', 'grid-4']> &
+      Schema.Attribute.DefaultTo<'grid-3'>;
+    sectionId: Schema.Attribute.String;
+    showAuthor: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    showDate: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    showReadTime: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
+  };
+}
+
+export interface SectionsCategoryFilter extends Struct.ComponentSchema {
+  collectionName: 'components_sections_category_filters';
+  info: {
+    description: 'Category filter bar for blog navigation';
+    displayName: 'Category Filter';
+    icon: 'filter';
+  };
+  attributes: {
+    allLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'All Articles'>;
+    displayStyle: Schema.Attribute.Enumeration<['pills', 'dropdown']> &
+      Schema.Attribute.DefaultTo<'pills'>;
+    sectionId: Schema.Attribute.String;
+    sticky: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
+  };
+}
+
 export interface SectionsCompass extends Struct.ComponentSchema {
   collectionName: 'components_sections_compasses';
   info: {
@@ -50,10 +122,14 @@ export interface SectionsCta extends Struct.ComponentSchema {
   };
   attributes: {
     backgroundImage: Schema.Attribute.Media<'images'>;
+    badge: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     primaryButton: Schema.Attribute.Component<'shared.cta-button', false>;
     secondaryButton: Schema.Attribute.Component<'shared.cta-button', false>;
+    sectionId: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'dark'>;
   };
 }
 
@@ -68,8 +144,29 @@ export interface SectionsFaq extends Struct.ComponentSchema {
     displayStyle: Schema.Attribute.Enumeration<['accordion', 'grid', 'list']> &
       Schema.Attribute.DefaultTo<'accordion'>;
     faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    sectionId: Schema.Attribute.String;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
+  };
+}
+
+export interface SectionsFeaturedArticle extends Struct.ComponentSchema {
+  collectionName: 'components_sections_featured_articles';
+  info: {
+    description: 'Highlights a single featured article';
+    displayName: 'Featured Article';
+    icon: 'star';
+  };
+  attributes: {
+    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
+    layout: Schema.Attribute.Enumeration<['horizontal', 'card']> &
+      Schema.Attribute.DefaultTo<'horizontal'>;
+    sectionId: Schema.Attribute.String;
+    useMostRecent: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
   };
 }
 
@@ -174,8 +271,11 @@ export interface SectionsPricing extends Struct.ComponentSchema {
     popularLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Most Popular'>;
     pricingTiers: Schema.Attribute.Component<'shared.pricing-tier', true>;
+    sectionId: Schema.Attribute.String;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
   };
 }
 
@@ -193,9 +293,12 @@ export interface SectionsServicesGrid extends Struct.ComponentSchema {
       ['grid-2', 'grid-3', 'grid-4', 'list']
     > &
       Schema.Attribute.DefaultTo<'grid-3'>;
+    sectionId: Schema.Attribute.String;
     services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
   };
 }
 
@@ -229,9 +332,12 @@ export interface SectionsTestimonials extends Struct.ComponentSchema {
     icon: 'heart';
   };
   attributes: {
+    sectionId: Schema.Attribute.String;
     subtitle: Schema.Attribute.Text;
     testimonials: Schema.Attribute.Component<'shared.testimonial', true>;
     title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
   };
 }
 
@@ -252,6 +358,26 @@ export interface SharedCompassDirection extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'NORTH'>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedContactDetails extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_details';
+  info: {
+    description: 'Detailed contact information for contact page';
+    displayName: 'Contact Details';
+    icon: 'envelope';
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    email: Schema.Attribute.String;
+    officeHours: Schema.Attribute.Text;
+    phone: Schema.Attribute.String;
+    responseTime: Schema.Attribute.String;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Get in Touch'>;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
   };
 }
 
@@ -316,6 +442,22 @@ export interface SharedFeatureCard extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFooterCta extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footer_ctas';
+  info: {
+    description: "Call-to-action section for footer (e.g., 'Become Unbeatable')";
+    displayName: 'Footer CTA';
+    icon: 'bullhorn';
+  };
+  attributes: {
+    badge: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    primaryButton: Schema.Attribute.Component<'shared.cta-button', false>;
+    secondaryButton: Schema.Attribute.Component<'shared.cta-button', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedFooterWidget extends Struct.ComponentSchema {
   collectionName: 'components_shared_footer_widgets';
   info: {
@@ -330,14 +472,25 @@ export interface SharedFooterWidget extends Struct.ComponentSchema {
         'shared.rich-text',
         'shared.newsletter-form',
         'shared.contact-info',
+        'shared.hubspot-newsletter',
       ]
     >;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<
-      ['links', 'newsletter', 'contact', 'social', 'rich-text']
+      [
+        'links',
+        'newsletter',
+        'hubspot-newsletter',
+        'contact',
+        'social',
+        'rich-text',
+      ]
     > &
       Schema.Attribute.Required;
+    width: Schema.Attribute.Enumeration<['33', '66', '100']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'33'>;
   };
 }
 
@@ -356,10 +509,34 @@ export interface SharedHeroSection extends Struct.ComponentSchema {
     scrollPrompt: Schema.Attribute.String;
     secondaryCTA: Schema.Attribute.Component<'shared.cta-button', false>;
     secondSubtitle: Schema.Attribute.Text;
+    size: Schema.Attribute.Enumeration<['default', 'large', 'full']> &
+      Schema.Attribute.DefaultTo<'default'>;
     subtitle: Schema.Attribute.Text;
     thirdSubtitle: Schema.Attribute.Text;
     titleBottom: Schema.Attribute.String;
     titleTop: Schema.Attribute.String & Schema.Attribute.Required;
+    variant: Schema.Attribute.Enumeration<['dark', 'light']> &
+      Schema.Attribute.DefaultTo<'dark'>;
+  };
+}
+
+export interface SharedHubspotNewsletter extends Struct.ComponentSchema {
+  collectionName: 'components_shared_hubspot_newsletters';
+  info: {
+    description: 'HubSpot newsletter subscription form for footer widget';
+    displayName: 'HubSpot Newsletter';
+    icon: 'envelope';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    hubspotForm: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::hubspot-form.hubspot-form'
+    >;
+    privacyText: Schema.Attribute.RichText;
+    successMessage: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Thank you for subscribing!'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -477,24 +654,33 @@ export interface SharedPricingTier extends Struct.ComponentSchema {
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
+    description: 'Quote section with optional title, author and theme variant';
     displayName: 'Quote';
     icon: 'indent';
   };
   attributes: {
-    body: Schema.Attribute.Text;
+    author: Schema.Attribute.String;
+    body: Schema.Attribute.Text & Schema.Attribute.Required;
+    sectionId: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
   };
 }
 
 export interface SharedRichText extends Struct.ComponentSchema {
   collectionName: 'components_shared_rich_texts';
   info: {
-    description: '';
+    description: 'Rich text content section with optional title and theme variant';
     displayName: 'Rich text';
     icon: 'align-justify';
   };
   attributes: {
     body: Schema.Attribute.RichText;
+    sectionId: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['light', 'dark']> &
+      Schema.Attribute.DefaultTo<'light'>;
   };
 }
 
@@ -636,10 +822,14 @@ export interface SharedTestimonial extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'sections.all-services-grid': SectionsAllServicesGrid;
+      'sections.articles-grid': SectionsArticlesGrid;
+      'sections.category-filter': SectionsCategoryFilter;
       'sections.compass': SectionsCompass;
       'sections.content-with-stats': SectionsContentWithStats;
       'sections.cta': SectionsCta;
       'sections.faq': SectionsFaq;
+      'sections.featured-article': SectionsFeaturedArticle;
       'sections.features': SectionsFeatures;
       'sections.how-it-works': SectionsHowItWorks;
       'sections.hubspot-form': SectionsHubspotForm;
@@ -649,12 +839,15 @@ declare module '@strapi/strapi' {
       'sections.team': SectionsTeam;
       'sections.testimonials': SectionsTestimonials;
       'shared.compass-direction': SharedCompassDirection;
+      'shared.contact-details': SharedContactDetails;
       'shared.contact-info': SharedContactInfo;
       'shared.content-subsection': SharedContentSubsection;
       'shared.cta-button': SharedCtaButton;
       'shared.feature-card': SharedFeatureCard;
+      'shared.footer-cta': SharedFooterCta;
       'shared.footer-widget': SharedFooterWidget;
       'shared.hero-section': SharedHeroSection;
+      'shared.hubspot-newsletter': SharedHubspotNewsletter;
       'shared.media': SharedMedia;
       'shared.menu-item': SharedMenuItem;
       'shared.menu-item-level-2': SharedMenuItemLevel2;
