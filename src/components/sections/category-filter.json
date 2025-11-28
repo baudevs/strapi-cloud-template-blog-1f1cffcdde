@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_category_filters",
+  "info": {
+    "displayName": "Category Filter",
+    "description": "Category filter bar for blog navigation",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "allLabel": {
+      "type": "string",
+      "default": "All Articles"
+    },
+    "displayStyle": {
+      "type": "enumeration",
+      "enum": ["pills", "dropdown"],
+      "default": "pills"
+    },
+    "sticky": {
+      "type": "boolean",
+      "default": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["light", "dark"],
+      "default": "light"
+    },
+    "sectionId": {
+      "type": "string"
+    }
+  }
+}

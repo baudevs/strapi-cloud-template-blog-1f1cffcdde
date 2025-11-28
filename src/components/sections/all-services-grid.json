@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_sections_all_services_grids",
+  "info": {
+    "displayName": "All Services Grid",
+    "description": "Displays all services from the Service collection",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["grid-2", "grid-3", "grid-4"],
+      "default": "grid-3"
+    },
+    "showPrice": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDescription": {
+      "type": "boolean",
+      "default": true
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Learn More"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["light", "dark"],
+      "default": "light"
+    },
+    "sectionId": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "blog_pages",
+  "info": {
+    "singularName": "blog-page",
+    "pluralName": "blog-pages",
+    "displayName": "Blog Page",
+    "description": "Blog listing page with configurable hero and dynamic sections"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "component": "shared.hero-section",
+      "repeatable": false
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.articles-grid",
+        "sections.featured-article",
+        "sections.category-filter",
+        "sections.features",
+        "sections.testimonials",
+        "sections.cta",
+        "sections.hubspot-form",
+        "sections.faq",
+        "shared.rich-text",
+        "shared.media",
+        "shared.quote"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "footer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::footer.footer"
+    }
+  }
+}

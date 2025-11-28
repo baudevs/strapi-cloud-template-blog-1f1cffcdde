@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_sections_articles_grids",
+  "info": {
+    "displayName": "Articles Grid",
+    "description": "Grid display of blog articles with pagination",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "articlesPerPage": {
+      "type": "integer",
+      "default": 12,
+      "min": 3,
+      "max": 24
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["grid-2", "grid-3", "grid-4"],
+      "default": "grid-3"
+    },
+    "showAuthor": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDate": {
+      "type": "boolean",
+      "default": true
+    },
+    "showReadTime": {
+      "type": "boolean",
+      "default": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["light", "dark"],
+      "default": "light"
+    },
+    "sectionId": {
+      "type": "string"
+    }
+  }
+}

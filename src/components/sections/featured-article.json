@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_sections_featured_articles",
+  "info": {
+    "displayName": "Featured Article",
+    "description": "Highlights a single featured article",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    },
+    "useMostRecent": {
+      "type": "boolean",
+      "default": true
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["horizontal", "card"],
+      "default": "horizontal"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["light", "dark"],
+      "default": "light"
+    },
+    "sectionId": {
+      "type": "string"
+    }
+  }
+}
