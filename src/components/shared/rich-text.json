@@ -3,12 +3,23 @@
   "info": {
     "displayName": "Rich text",
     "icon": "align-justify",
-    "description": ""
+    "description": "Rich text content section with optional title and theme variant"
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "body": {
       "type": "richtext"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["light", "dark"],
+      "default": "light"
+    },
+    "sectionId": {
+      "type": "string"
     }
   }
 }

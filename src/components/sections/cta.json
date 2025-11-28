@@ -1,61 +1,42 @@
 {
-
-"collectionName": "components_sections_cta",
-
-"info": {
-
-"displayName": "CTA Section",
-
-"icon": "cursor"
-
-},
-
-"options": {},
-
-"attributes": {
-
-"title": {
-
-"type": "string"
-
-},
-
-"description": {
-
-"type": "text"
-
-},
-
-"primaryButton": {
-
-"type": "component",
-
-"repeatable": false,
-
-"component": "shared.cta-button"
-
-},
-
-"secondaryButton": {
-
-"type": "component",
-
-"repeatable": false,
-
-"component": "shared.cta-button"
-
-},
-
-"backgroundImage": {
-
-"type": "media",
-
-"multiple": false,
-
-"allowedTypes": ["images"]
-
-}
-
-}
-
+  "collectionName": "components_sections_cta",
+  "info": {
+    "displayName": "CTA Section",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "primaryButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta-button"
+    },
+    "secondaryButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta-button"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["light", "dark"],
+      "default": "dark"
+    },
+    "sectionId": {
+      "type": "string"
+    }
+  }
 }

@@ -28,6 +28,14 @@
     "buttonText": {
       "type": "string",
       "default": "Learn More"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["light", "dark"],
+      "default": "light"
+    },
+    "sectionId": {
+      "type": "string"
     }
   }
 }

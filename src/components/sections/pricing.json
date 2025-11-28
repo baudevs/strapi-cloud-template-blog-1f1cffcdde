@@ -27,6 +27,14 @@
     "ctaText": {
       "type": "text",
       "required": false
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["light", "dark"],
+      "default": "light"
+    },
+    "sectionId": {
+      "type": "string"
     }
   }
 }

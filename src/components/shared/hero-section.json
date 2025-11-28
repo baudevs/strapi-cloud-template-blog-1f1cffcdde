@@ -48,6 +48,16 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": ["videos"]
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "dark"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": ["default", "large", "full"],
+      "default": "default"
     }
   }
 }
