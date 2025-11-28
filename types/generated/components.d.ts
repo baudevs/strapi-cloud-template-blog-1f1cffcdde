@@ -16,6 +16,8 @@ export interface SectionsAllServicesGrid extends Struct.ComponentSchema {
     showDescription: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     showPrice: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['light', 'dark']> &
@@ -46,6 +48,8 @@ export interface SectionsArticlesGrid extends Struct.ComponentSchema {
     showAuthor: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     showDate: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     showReadTime: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['light', 'dark']> &
@@ -87,6 +91,8 @@ export interface SectionsCompass extends Struct.ComponentSchema {
     hoverText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Hover over the compass to explore each direction. Click on any point to learn more.'>;
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'large'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['dark', 'light']> &
@@ -106,6 +112,9 @@ export interface SectionsContentWithStats extends Struct.ComponentSchema {
     badge: Schema.Attribute.String;
     closingStatement: Schema.Attribute.RichText;
     content: Schema.Attribute.RichText;
+    sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'large'>;
     stats: Schema.Attribute.Component<'shared.stat-card', true>;
     subsections: Schema.Attribute.Component<'shared.content-subsection', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -127,6 +136,8 @@ export interface SectionsCta extends Struct.ComponentSchema {
     primaryButton: Schema.Attribute.Component<'shared.cta-button', false>;
     secondaryButton: Schema.Attribute.Component<'shared.cta-button', false>;
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['light', 'dark']> &
       Schema.Attribute.DefaultTo<'dark'>;
@@ -145,6 +156,8 @@ export interface SectionsFaq extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'accordion'>;
     faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['light', 'dark']> &
@@ -164,6 +177,8 @@ export interface SectionsFeaturedArticle extends Struct.ComponentSchema {
     layout: Schema.Attribute.Enumeration<['horizontal', 'card']> &
       Schema.Attribute.DefaultTo<'horizontal'>;
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     useMostRecent: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     variant: Schema.Attribute.Enumeration<['light', 'dark']> &
       Schema.Attribute.DefaultTo<'light'>;
@@ -181,6 +196,8 @@ export interface SectionsFeatures extends Struct.ComponentSchema {
     features: Schema.Attribute.Component<'shared.feature-card', true>;
     introText: Schema.Attribute.Text;
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['dark', 'light']> &
@@ -199,6 +216,8 @@ export interface SectionsHowItWorks extends Struct.ComponentSchema {
     earlyWarningContent: Schema.Attribute.RichText;
     earlyWarningTitle: Schema.Attribute.String;
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     steps: Schema.Attribute.Component<'shared.feature-card', true>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
@@ -222,6 +241,8 @@ export interface SectionsHubspotForm extends Struct.ComponentSchema {
       'api::hubspot-form.hubspot-form'
     >;
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['dark', 'light']> &
@@ -252,6 +273,8 @@ export interface SectionsMethodology extends Struct.ComponentSchema {
     optimisingTitle: Schema.Attribute.String;
     principles: Schema.Attribute.Component<'shared.feature-card', true>;
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'large'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['dark', 'light']> &
@@ -272,6 +295,8 @@ export interface SectionsPricing extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'Most Popular'>;
     pricingTiers: Schema.Attribute.Component<'shared.pricing-tier', true>;
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['light', 'dark']> &
@@ -295,6 +320,8 @@ export interface SectionsServicesGrid extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'grid-3'>;
     sectionId: Schema.Attribute.String;
     services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['light', 'dark']> &
@@ -315,6 +342,9 @@ export interface SectionsTeam extends Struct.ComponentSchema {
     closingStatement: Schema.Attribute.String;
     missionContent: Schema.Attribute.RichText;
     missionTitle: Schema.Attribute.String;
+    sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'large'>;
     storyContent: Schema.Attribute.RichText;
     storyTitle: Schema.Attribute.String;
     subtitle: Schema.Attribute.Text;
@@ -333,6 +363,8 @@ export interface SectionsTestimonials extends Struct.ComponentSchema {
   };
   attributes: {
     sectionId: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['compact', 'default', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
     subtitle: Schema.Attribute.Text;
     testimonials: Schema.Attribute.Component<'shared.testimonial', true>;
     title: Schema.Attribute.String;

@@ -27,6 +27,11 @@
       "enum": ["dark", "light"],
       "default": "dark"
     },
+    "size": {
+      "type": "enumeration",
+      "enum": ["compact", "default", "large"],
+      "default": "default"
+    },
     "backgroundImage": {
       "type": "media",
       "allowedTypes": ["images"]

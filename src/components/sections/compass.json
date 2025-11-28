@@ -36,6 +36,11 @@
       "enum": ["dark", "light"],
       "default": "dark"
     },
+    "size": {
+      "type": "enumeration",
+      "enum": ["compact", "default", "large"],
+      "default": "large"
+    },
     "sectionId": {
       "type": "string"
     }
