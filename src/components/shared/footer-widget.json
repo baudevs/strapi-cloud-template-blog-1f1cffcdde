@@ -12,6 +12,7 @@
       "enum": [
         "links",
         "newsletter",
+        "hubspot-newsletter",
         "contact",
         "social",
         "rich-text"
@@ -22,13 +23,24 @@
       "type": "string",
       "required": false
     },
+    "width": {
+      "type": "enumeration",
+      "enum": [
+        "33",
+        "66",
+        "100"
+      ],
+      "default": "33",
+      "required": true
+    },
     "content": {
       "type": "dynamiczone",
       "components": [
         "shared.simple-link",
         "shared.rich-text",
         "shared.newsletter-form",
-        "shared.contact-info"
+        "shared.contact-info",
+        "shared.hubspot-newsletter"
       ]
     },
     "order": {

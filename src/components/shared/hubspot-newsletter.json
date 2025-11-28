@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_hubspot_newsletters",
+  "info": {
+    "displayName": "HubSpot Newsletter",
+    "description": "HubSpot newsletter subscription form for footer widget",
+    "icon": "envelope"
+  },
+  "options": {},
+  "attributes": {
+    "hubspotForm": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::hubspot-form.hubspot-form"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "successMessage": {
+      "type": "string",
+      "default": "Thank you for subscribing!"
+    },
+    "privacyText": {
+      "type": "richtext"
+    }
+  }
+}

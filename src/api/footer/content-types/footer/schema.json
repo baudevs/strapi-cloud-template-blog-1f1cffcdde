@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer",
+    "description": "Reusable footer configurations"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "dark",
+      "required": true
+    },
+    "ctaSection": {
+      "type": "component",
+      "component": "shared.footer-cta",
+      "repeatable": false
+    },
+    "widgets": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-widget"
+    },
+    "copyrightText": {
+      "type": "string"
+    },
+    "bottomLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.cta-button"
+    },
+    "showSocialLinks": {
+      "type": "boolean",
+      "default": true
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}
